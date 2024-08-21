@@ -1,0 +1,17 @@
+{
+  "appUrl": "https://wfm-shs-automation.apihcdevcloud.com",
+  "users": {
+    "admin": {
+      "login": "super",
+      "password": "byea11an"
+    },
+    "nonAdmin": {
+      "login": "",
+      "password": ""
+    },
+    "staff": {
+      "login": "automationstaff",
+      "password": "Test@123"
+    }
+  }
+}

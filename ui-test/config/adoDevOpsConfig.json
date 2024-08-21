@@ -1,0 +1,9 @@
+{
+    "userName": "YOUR PERSONAL ACCESS TOKEN NAME",
+    "PAT": "YOUR PERSONAL ACCESS TOKEN HERE OR USE PIPELLINE SECRET VARIABLE",
+    "organization": "symplr",
+    "project": "Innovation",
+    "testRunName": "PREFERRED TEST RUN NAME",
+    "planId": "PLAN ID",
+    "suiteId": "SUITE ID"
+}
