@@ -2,11 +2,8 @@
 // Copyright © 2022 symplr. All rights reserved. Confidential and Proprietary.
 // </copyright>
 
-import { BaseControls} from "../base/Base.controls.ts";
-
-class ProfileControls extends BaseControls {
+export class ProfileControls {
   constructor() {
-    super();
   }
 
   /**
@@ -30,8 +27,8 @@ class ProfileControls extends BaseControls {
   /**
    * Xpath locator for Find button 
    */
-    get findButton() {
-    return '//input[@name="findProfileByName" and @class="buttonPriority"]';
+  public get findBtn() {
+    return '//*[@name="findProfileByName"]';
   }
   /**
    * Xpath locator for searchResult list
@@ -42,8 +39,8 @@ class ProfileControls extends BaseControls {
   /**
    * Xpath locator for Profile Options
    */
-    get profileOptions() {
-      return '//div[@class="options"]';
+    public get profileOptions() {
+      return '//div[contains(text(), "Profile Options")]';
   }
   /**
    * Xpath locator for Personal Demographics page
@@ -54,8 +51,8 @@ class ProfileControls extends BaseControls {
   /**
    * Xpath locator for Professional details page
    */
-      get professionalDetails() {
-        return '//div[@routerlink="professionalDetails"]';
+    get professionalDetails() {
+      return '//div[contains(text(),"Professional Details")]';
   }
   /**
    * Xpath locator for Professional Details username field
@@ -72,14 +69,14 @@ class ProfileControls extends BaseControls {
   /**
    * Xpath locator for Professional Details firstname field
    */
-    get firstName() {
-      return '//*[@id="firstName"]';
+    public get firstName() {
+      return `//input[@id="firstName"]`;
   }
   /**
    * Xpath locator for Professional Details lastname field
    */
-    get lastName() {
-      return '//*[@id="lastName"]';
+    public get lastName() {
+      return `//input[@id="lastName"]`;
   }
   /**
    * Xpath locator for Professional Details email field
@@ -88,7 +85,7 @@ class ProfileControls extends BaseControls {
       return '//*[@id="email"]';
   }
   /**
-   * Verify search resault
+   * Xpath locator for search result
    */
     public get isSearchResultDisplays() {
       return '//*[@id="search-results"]/tbody';
@@ -100,6 +97,14 @@ class ProfileControls extends BaseControls {
     return '//*[@id="search-results"]/tbody/tr[1]/td[1]/a';
   }
   /**
+   * Xpath locator for select employee
+   * @param employeename
+   * @returns
+   */
+  public selectEmployeeFromSearchResult(employeename: string): string {
+    return `//a[contains(text(),'${employeename}')]`;
+  }
+  /**
    * Xpath locator for Search button
    */
     public get searchBtn() {
@@ -109,7 +114,7 @@ class ProfileControls extends BaseControls {
    * Xpath locator for Save button
    */
   public get saveBtn() {
-    return '//*[@id="saveBtn"]';
+    return '//button[@id="saveBtn"]';
   }
   /**
    * Xpath locator for successful message
@@ -118,12 +123,243 @@ class ProfileControls extends BaseControls {
     return '//div[contains(text()," All changes have been saved. ")]';
   }
 
-    /**
+  /**
    * Xpath locator for tost message
    */
     public get tostMsg() {
       return '//div[@id="toast-container"]';
-    }
+  }
+
+  /**
+   * Xpath locator for Primary Unit dropdown
+   */
+    public get primaryUnitDropDown() {
+      return '//ng-select[@id="primaryUnit"]';
+  }
+
+  /**
+   * Xpath locator for JobTitle dropdown
+   */
+    public get jobTitleDropDown() {
+      return '//ng-select[@id="jobTitle"]';
+  }
+
+  /**
+   * Xpath locator for Level of Care dropdown
+   */
+    public get levelOfCareDropdown() {
+      return '//ng-select[@id="levelOfCare"]';
+  }
+
+  /**
+   * Xpath locator for Scheduling Group dropdown
+   */
+    public get schedulingGroupDropdown() {
+      return '//ng-select[@id="employeeGroup"]';
+  }
+
+  /**
+   * Xpath locator for Base Pay Rate input box
+   */
+    public get basePayRate() {
+      return '//input[@id="basePayRate"]';
+  }
+
+  /**
+   * Xpath locator for Employee Status dropdown
+   */
+    public get employeeStatusDropDown() {
+      return '//ng-select[@id="status"]';
+  }
+
+  /**
+   * Xpath locator for Employee Status dropdown
+   */
+    public get saveBtnPrD() {
+      return '//button[contains(text(), "Save")]';
+  }
+
+  /**
+   * Xpath locator for Professional Details Page
+   */
+    public get proffessionalDetailsPageHeader() {
+      return '//h3[contains(text(), "Professional Details")]';
+  }
+  /**
+   * Xpath locator for click Hospital dropdown
+   */
+    public get hospitalDropdown(): string {
+      return '//ng-select[@id="hospital"]';
+  }
+  
+  /**
+   * Xpath locator for Hospital List
+   */
+  public get hospitalDropdownList(): string {
+    return '//*[@id="dropDown"]/virtual-scroller/div[2]';
+  }
+
+  /**
+   * Xpath locator for select Hospital name from dropdown
+   */
+  public selectHospital(hospitalName: string): string {
+    return `//span[@class="ng-option-label ng-star-inserted" and contains(text(), '${hospitalName}')]`;
+  }
+
+  /**
+   * Xpath locator for select Primary Unit from dropdown
+   */
+    public selectPrimaryUnit(primaryUnit: string): string {
+      return `//span[@class="ng-option-label ng-star-inserted" and contains(text(), '${primaryUnit}')]`;
+  }
+
+  /**
+   * Xpath locator for select JobTitle from dropdown
+   */
+      public selectJobTitle(jobTitle: string): string {
+        return `//span[@class ="ng-option-label ng-star-inserted" and contains(text(), '${jobTitle}')]`;
+  }
+
+  /**
+   * Xpath locator for select Level Of Care from dropdown
+   */
+      public selectLevelOfCare(levelOfCare: string): string {
+        return `//span[@class="ng-option-label ng-star-inserted" and contains(text(), '${levelOfCare}')]`;
+  }
+
+  /**
+   * Xpath locator for select Scheduling Group from dropdown
+   */
+    public selectSchedulingGroup(schedulingGroup: string): string {
+      return `//span[@class="ng-option-label ng-star-inserted" and contains(text(), '${schedulingGroup}')]`;
+  }
+
+  /**
+   * Xpath locator for select Scheduling Group from dropdown
+   */
+    public selectEmployeeStatus(employeeStatus: string): string {
+      return `//span[@class="ng-option-label ng-star-inserted" and contains(text(), '${employeeStatus}')]`;
+  }
+  /**
+   * Xpath locator for comment field
+   */
+   public get commentPrD() {
+      return '//*[@id="comment"]';
+  }
+  /**
+   * Xpath locator for New Password field
+   */
+    public get newPassword() {
+      return '//input[@id="newPassword"]';
+  }
+  /**
+   * Xpath locator for Confirm New Password field
+   */
+    public get confirmNewPassword() {
+      return '//input[@id="confirmPassword"]';
+  }
+  /**
+   * Xpath locator for Change Password Save button
+   */
+    public get saveBtnCP() {
+      return '//button[@id="saveBtn"]';
+  }
+  /**
+   * Xpath locator for Change Password Cancel button
+   */
+    public get cancelBtnCP() {
+      return '//button[contains(text(), "Cancel")]';
+  }
+  /**
+   * Xpath locator for Change Password Left Panel Link
+   */
+    public get changePasswordLPL() {
+      return '//div[contains(text(), "Change Password")]';
+  }
+  /**
+   * Xpath locator for Change Password Header Text
+   */
+    public get changePasswordHeaderTxt() {
+      return '//h3[contains(text(), "Change Password")]';
+  }
+  /**
+   * Xpath locator for Employee Credentials Left Panel link
+   */ 
+  public get employeeCredentialsLPL() {
+    return '//div[contains(text(),"Employee Credentials")]';
+  }
+  /**
+   * Xpath locator for Employee Credential Header Text
+   */
+    public get employeeCredentialHeaderTxt() {
+      return '//h3[contains(text(), "Employee Credentials")]';
+  }
+  /**
+   * Xpath locator for Employee Creadentials list
+   */
+    public get employeeCredentialsList() {
+      return '//div[@class="user-credentials"]//following::tr';
+  }
+  /**
+   * Xpath locator for Add button
+   */
+    public get addBtn() {
+      return '//button[contains(text(), "Add")]';
+  }
+  /**
+   * Xpath locator for Add Credential
+   */
+  public get addCredential() {
+    return '//span[contains(text(), "Add Credential")]';
+  }
+  /**
+   * Xpath locator for Name of Credential search box
+   */
+  public get nameOfCredentialSearchBox() {
+    return '//div[@class="searchbox-wrap"]//input';
+  }
+  /**
+   * Xpath locator for select Name of Credential search result
+   */
+    public selectNameOfCredential(nameOfCredential: string): string {
+      return `//span[@class="mat-option-text" and contains(text(), '${nameOfCredential}')]`;
+  }
+  /**
+   * Xpath locator for Reference Number input text box
+   */
+    public get referenceNumberTxtBox() {
+      return '//input[@id="refNumber"]';
+  }
+  /**
+   * Xpath locator for Employee Credentials - Expiration Date
+   */
+    public get expirationDate() {
+      return '//input[@id="expDate"]';
+  }
+  /**
+   * Xpath locator for Employee Credentials - Select Expiration Date
+   */
+    public get selectExpirationDate() {
+      return '//div[@class="dayContainer"]/span[10]';
+  }
+  /**
+   * Xpath locator for Employee Credentials - Completion Date
+   */
+    public get completionDate() {
+      return '//input[@id="compDate"]';
+  }
+  /**
+   * Xpath locator for Employee Credentials - Comments
+   */
+    public get managerComment() {
+      return '//textarea[@id="managerComment"]';
+  }
+  /**
+   * Xpath locator for Employee Credentials - Edit icon
+   */
+    public get empCreadentialEditIcon() {
+      return '(//span[@class="cursor icon icon-ge-edit icon-sm ng-star-inserted"])[1]';
+  }
 }
 
 export const profileControls = new ProfileControls();
